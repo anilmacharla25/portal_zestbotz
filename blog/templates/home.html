@@ -23,79 +23,98 @@
       .dropdown-menu a {
           font-size: 18px;
       }
+
+      .image-container-home {
+        position: relative;
+        overflow: hidden;
+      }
+    
+      .img-thumbnail-home {
+        height: 100%;
+        width: 100%;
+        object-fit: cover; /* Ensures the image covers the area without distortion */
+      }
+    
+      @media (max-width: 768px) {
+        .main h2 {
+          font-size: 2rem; /* Smaller font size for mobile */
+        }
+        .main p {
+          font-size: 1rem; /* Smaller font size for mobile */
+        }
+      }
+    
+      @media (max-width: 480px) {
+        .main h2 {
+          font-size: 1.5rem; /* Further reduce font size for very small screens */
+        }
+        .main p {
+          font-size: 0.9rem; /* Further reduce font size for very small screens */
+        }
+      }
   </style>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: rgb(12 11 11 / 90%);">
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: rgba(12, 11, 11, 0.9);">
       <div class="container">
-          <a class="navbar-brand" href="#" style="font-size: 30px; font-family:Georgia, 'Times New Roman', Times, serif; font-weight:400; color:#f48200;">
+          <a class="navbar-brand" href="#" style="font-size: 30px; font-family: Georgia, 'Times New Roman', Times, serif; font-weight: 400; color: #f48200;">
               <img src="{% static 'logo.png' %}" alt="Logo" style="height: 40px; margin-right: 8px;">
               ZestBotz
           </a>
-        
+          <button class="navbar-toggler" style="color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon" style="background-color: white;"></span>
+          </button>
+  
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav ms-auto mb-2 mb-lg-0"> 
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#home" style="font-size: 20px; font-weight: bold; color:white; text-shadow: 2px 2px black;">Home</a>
+                      <a class="nav-link active" aria-current="page" href="#home" style="font-size: 20px; font-weight: bold; color: white; text-shadow: 2px 2px black;">Home</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#about" style="font-size: 20px; font-weight: bold; color:white; text-shadow: 2px 2px black;">About Us</a>
+                      <a class="nav-link active" aria-current="page" href="#about" style="font-size: 20px; font-weight: bold; color: white; text-shadow: 2px 2px black;">About Us</a>
                   </li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link" href="#service" aria-expanded="false" style="font-size: 20px; font-weight: bold; color:white; text-shadow: 2px 2px black;">Service</a>
-                    <ul class="dropdown-menu" style="background-color: #2c2c2c; border-radius: 10px; border: 1px solid #d2ff7f; padding: 10px;">
-                        <li>
-                            <a class="dropdown-item" href="{% url 'healthcare_page' %}" style="color: #ffffff; font-size: 18px; padding: 8px 15px; border-radius: 5px; background-color: transparent; transition: background-color 0.3s;">
-                                Healthcare Industry
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{% url 'finance_page' %}" style="color: #ffffff; font-size: 18px; padding: 8px 15px; border-radius: 5px; background-color: transparent; transition: background-color 0.3s;">
-                                Finance Industry
-                            </a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{% url 'insurance_page' %}" style="color: #ffffff; font-size: 18px; padding: 8px 15px; border-radius: 5px; background-color: transparent; transition: background-color 0.3s;">
-                                Insurance Industry
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                
-                  <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#contact" style="font-size: 20px; font-weight: bold; color:white; text-shadow: 2px 2px black;">Contact Us</a>
+                      <a class="nav-link dropdown-toggle" href="#service" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 20px; font-weight: bold; color: white; text-shadow: 2px 2px black;">Service</a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: #2c2c2c; border-radius: 10px; border: 1px solid #d2ff7f; padding: 10px;">
+                          <li><a class="dropdown-item" href="{% url 'healthcare_page' %}" style="color: #ffffff; font-size: 18px; padding: 8px 15px; border-radius: 5px; background-color: transparent; transition: background-color 0.3s;">Healthcare Industry</a></li>
+                          <li><a class="dropdown-item" href="{% url 'finance_page' %}" style="color: #ffffff; font-size: 18px; padding: 8px 15px; border-radius: 5px; background-color: transparent; transition: background-color 0.3s;">Finance Industry</a></li>
+                          <li><a class="dropdown-item" href="{% url 'insurance_page' %}" style="color: #ffffff; font-size: 18px; padding: 8px 15px; border-radius: 5px; background-color: transparent; transition: background-color 0.3s;">Insurance Industry</a></li>
+                      </ul>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#faq" style="font-size: 20px; font-weight: bold; color:white; text-shadow: 2px 2px black;">FAQs</a>
+                      <a class="nav-link active" aria-current="page" href="#contact" style="font-size: 20px; font-weight: bold; color: white; text-shadow: 2px 2px black;">Contact Us</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#career" style="font-size: 20px; font-weight: bold; color:white; text-shadow: 2px 2px black;">Careers</a>
+                      <a class="nav-link active" aria-current="page" href="#faq" style="font-size: 20px; font-weight: bold; color: white; text-shadow: 2px 2px black;">FAQs</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#career" style="font-size: 20px; font-weight: bold; color: white; text-shadow: 2px 2px black;">Careers</a>
                   </li>
               </ul>
           </div>
       </div>
-    </nav>
+  </nav>
   
-
-      <!-- HOME PAGE-->
-      <div class="image-container" id="home" name="home" style="position: relative;">
-        <!-- Image -->
-        <img src="{% static 'ai.jpeg' %}" class="img-thumbnail" style="height: 100%; width: 100%; object-fit: cover; border:none;">
-      
-        <!-- Section with Content (centered on the image) -->
-        <section class="main" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); width: 50%; padding-left: 35px; color: white;">
-          <div class="container py-5">
-            <div class="row py-4">
-              <div class="col-lg-12 pt-5">
-                <h2 style="color: white; font-weight: bold; font-size:55px;">AI Powered Workflow Automation Services</h2>
-                <p style="color: white; font-size: 20px; font-weight: lighter;">We deliver intelligent automation solutions leveraging AI, Python, and UiPath to optimize costs, minimize workforce needs, and boost operational efficiency.</p>
-              </div>
-            </div>
-          </div>
-        </section>
+  
+<!-- HOME PAGE-->
+<div class="image-container-home" id="home" name="home" style="position: relative;">
+  <!-- Image -->
+  <img src="{% static 'ai.jpeg' %}" class="img-thumbnail-home" style="height: 100vh; width: 100%; object-fit: cover; border: none;">
+  
+  <!-- Section with Content (centered on the image) -->
+  <section class="main" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; padding: 20px; color: white;">
+    <div class="container py-5">
+      <div class="row py-4">
+        <div class="col-lg-12 text-center">
+          <h2 style="color: white; font-weight: bold; font-size: 2.7rem;">AI Powered Workflow Automation Services</h2>
+          <p style="color: white; font-size: 1.4rem; font-weight: 500;">We deliver intelligent automation solutions leveraging AI, Python, and UiPath to optimize costs, minimize workforce needs, and boost operational efficiency.</p>
+        </div>
       </div>
+    </div>
+  </section>
+</div>
 
-      
+
         <!-- ABOUT US -->
         <section class="py-3 py-md-5" id="about" name="about" >
           <div class="container"  style="padding: 30px;">
