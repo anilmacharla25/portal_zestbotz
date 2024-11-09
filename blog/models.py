@@ -2,9 +2,9 @@ from django.db import models
 
 # Create your models here.
 class Contact(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100,blank=False)
     email = models.EmailField()
-    subject = models.CharField(max_length=100, blank=True, null=True)
+    subject = models.CharField(max_length=100)
     message = models.TextField()
 
     def __str__(self):
@@ -12,8 +12,8 @@ class Contact(models.Model):
 
     
 class ResumeSubmission(models.Model):
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
+    name = models.CharField(max_length=100,blank=False)
+    email = models.EmailField(blank=False)
     resume = models.FileField(upload_to='resumes/')
 
     def __str__(self):
