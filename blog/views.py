@@ -59,11 +59,17 @@ def submit_resume(request):
     
     return render(request, 'home.html', {'form': form})
 
-def healthcare_page(request):
-    return render(request, 'healthcare.html')
+def webdev_page(request):
+    return render(request, 'webdev.html')
 
-def finance_page(request):
-    return render(request, 'finance.html')
+def aiml_page(request):
+    return render(request, 'aiml.html')
 
-def insurance_page(request):
-    return render(request, 'insurance.html')
+def data_analytics_page(request):
+    return render(request, 'data_analytics.html')
+
+def web_scrapping_page(request):
+    return render(request, 'web_scrapping.html')
+
+def process_automation_page(request):
+    return render(request, 'process_automation.html')

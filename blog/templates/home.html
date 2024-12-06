@@ -101,6 +101,8 @@
         }
       }
 
+      
+
       /* Base styles (applies to all screens) */
       .image-container-home {
         position: relative;
@@ -198,6 +200,8 @@
         position: relative;
         z-index: 1; 
       }
+
+      
 
     /* ABOUT US CSS */
       .about-section {
@@ -434,7 +438,46 @@
       .hover-underline:hover {
         text-decoration: underline;
       }
+      /*CONTACT US CSS*/
+      .whatsapp-button {
+        display: flex;
+        justify-content: center; /* Centers the button on the page */
+        align-items: center;
+        margin: 20px 0; /* Adjust margin as needed */
+      }
       
+      .whatsapp-link {
+        text-decoration: none;
+      }
+      
+      .whatsapp-box {
+        display: flex;
+        align-items: center;
+        background-color: #090a09; /* WhatsApp green color */
+        color: white; /* Text color */
+        border-radius: 5px; /* Rounded corners */
+        padding: 10px 15px; /* Padding inside the box */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+      
+      .whatsapp-box:hover {
+        background-color: #20b359; /* Darker green on hover */
+        transform: scale(1.05); /* Slight zoom effect */
+      }
+      
+      .whatsapp-icon {
+        width: 50px; /* Icon size */
+        height: 50px;
+        margin-right: 10px; /* Space between icon and text */
+      }
+      
+      .whatsapp-text {
+        font-size: 20px; /* Adjust text size */
+        font-weight: bold;
+      }
+      
+
       /*FAQ CSS*/
       .about-faq {
         position: relative;
@@ -467,6 +510,45 @@
     .animate {
       animation: appearFromBottom 1s ease-out forwards;
     }
+
+    /* who we serve style */
+    .industries-container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .industries-container h1 {
+      font-weight: bold;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+
+    .colabery-row {
+      display: flex;
+      flex-wrap: wrap; /* Allows wrapping of items */
+      justify-content: center; /* Centers items horizontally */
+      gap: 20px; /* Adds spacing between items */
+    }
+    
+    .col-md-2 {
+      flex: 0 0 calc(20% - 20px); /* Adjusts the width for a 5-item-per-row layout */
+      max-width: calc(20% - 20px);
+      text-align: center;
+    }
+    
+    .industries-We-Serve {
+      margin: 10px 0;
+    }
+    
+    .industries-icons img {
+      width: 80px; /* Adjust size as needed */
+      height: auto;
+    }
+    
+    .industries-icons-caption h3 {
+      font-size: 14px; /* Adjust text size */
+      margin-top: 8px;
+    } 
   </style>
   </head>
   <body>
@@ -476,7 +558,7 @@
           <img src="{% static 'logo.png' %}" alt="Logo" style="height: 40px; margin-right: 8px;">
             ZestBotz
         </a>
-        <button class="navbar-toggler" style="color: white;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler"  type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon" style="background-color: white;"></span>
         </button>
   
@@ -492,13 +574,19 @@
               <a class="nav-link dropdown-toggle" href="#service" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 20px; font-weight: bold; color: white; text-shadow: 2px 2px black;">Service</a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color: #ffffff; border-radius: 10px; border: 3px solid #dcebe8;">
                   <li>
-                    <a href="{% url 'healthcare_page' %}" class="dropdown-item header-hover" style="color: #0a1546; font-weight: bold; font-size: 18px;">Healthcare</a>
+                    <a href="{% url 'webdev_page' %}" class="dropdown-item header-hover" style="color: #0a1546; font-weight: bold; font-size: 18px;">Web Development</a>
                   </li>
                   <li>
-                    <a href="{% url 'finance_page' %}" class="dropdown-item header-hover" style="color: #0a1546; font-weight: bold; font-size: 18px;">Finance</a>
+                    <a href="{% url 'aiml_page' %}" class="dropdown-item header-hover" style="color: #0a1546; font-weight: bold; font-size: 18px;">AIML</a>
                   </li>
                   <li>
-                    <a href="{% url 'insurance_page' %}" class="dropdown-item header-hover" style="color: #0a1546; font-weight: bold; font-size: 18px;">Insurance</a>
+                    <a href="{% url 'data_analytics_page' %}" class="dropdown-item header-hover" style="color: #0a1546; font-weight: bold; font-size: 18px;">Data Anaytics</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'web_scrapping_page' %}" class="dropdown-item header-hover" style="color: #0a1546; font-weight: bold; font-size: 18px;">Web Scrapping</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'process_automation_page' %}" class="dropdown-item header-hover" style="color: #0a1546; font-weight: bold; font-size: 18px;">Process Automation</a>
                   </li>
                 </ul>
             </li>
@@ -526,7 +614,7 @@
       <img src="{% static 'ai-hd.png' %}" alt="Background" style="position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; object-fit: cover; border: none; z-index: -1;">
 
       <!-- Section with Content (left side) -->
-      <section class="main" style="position: absolute; left: 30px; top: 30%; transform: translateY(0); max-width: 710px; color: white; text-align: left;">
+      <section class="main" style="position: absolute; left: 30px; top: 24%; transform: translateY(0); max-width: 710px; color: white; text-align: left;">
         <div class="content-section">
           <div class="row">
             <div class="col-lg-12">
@@ -536,6 +624,8 @@
               <p class="content" style="color: #ffffff; font-weight: 500; font-size: 1.3em;">We deliver intelligent automation and analytics solutions utilizing AI, Python, and UiPath to optimize costs, minimize workforce needs, and boost operational efficiency.<br><br>Our automation services also utilize Power BI to provide real-time analytics, helping you uncover trends and insights that optimize your workflows and drive strategic decisions.</p>
           
               <a type="button" class="button-29" role="button" href="#service">See what we do</a>
+
+              
             </div>
           </div>
         </div>
@@ -589,7 +679,7 @@
       
       <!-- Heading directly on top of the wave SVG -->
       <h1 class="custom-heading" style="z-index: 2;">
-        Who we serve
+        Services
       </h1>
 
       <!-- Wave SVG at the top, without additional background -->
@@ -601,41 +691,184 @@
   
       <!-- Image sections below the wave in a white background -->
       <div class="container" style="position: relative; z-index: 1; padding-top: 30px;">
-        <div class="row justify-content-between align-items-center">
-          <div class="col-12 col-md-3 d-flex flex-column align-items-center mb-4">
-            <a href="{% url 'healthcare_page' %}" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease;">
-              <img src="{% static 'health.jpeg' %}" alt="Healthcare Image" style="height: 250px; width: 250px; border-radius: 60px; box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;" 
-              onmouseover="this.parentElement.style.transform='scale(1.1)'" onmouseout="this.parentElement.style.transform='scale(1)'">
-              <h2 class="hover-underline" style="font-size: 34px; font-weight: bold; color: #000000; margin-top: 15px; letter-spacing: 0.5px; line-height: 1.2; text-align: center;">
-                Healthcare<br> Industry
-              </h2>
-            </a>
+        <div class="row justify-content-center align-items-center">
+            <!-- First Row -->
+            <div class="col-12 col-md-4 d-flex flex-column align-items-center mb-4">
+                <a href="{% url 'webdev_page' %}" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease;">
+                    <img src="{% static 'webdev.jpeg' %}" style="height: 250px; width: 250px; border-radius: 60px; box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;" 
+                    onmouseover="this.parentElement.style.transform='scale(1.1)'" onmouseout="this.parentElement.style.transform='scale(1)'">
+                    <h2 class="hover-underline" style="font-size: 34px; font-weight: bold; color: #000000; margin-top: 15px; letter-spacing: 0.5px; line-height: 1.2; text-align: center;">
+                        Web<br> Development
+                    </h2>
+                </a>
+            </div>
+            <div class="col-12 col-md-4 d-flex flex-column align-items-center mb-4">
+                <a href="{% url 'aiml_page' %}" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease;">
+                    <img src="{% static 'artificial.jpeg' %}" style="height: 250px; width: 250px; border-radius: 60px; box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;" 
+                    onmouseover="this.parentElement.style.transform='scale(1.1)'" onmouseout="this.parentElement.style.transform='scale(1)'">
+                    <h2 class="hover-underline" style="font-size: 34px; font-weight: bold; color: #000000; margin-top: 20px; letter-spacing: 0.5px; line-height: 1.2; text-align: center;">
+                        Artificial Intelligence<br>
+                    </h2>
+                </a>
+            </div>
+            <div class="col-12 col-md-4 d-flex flex-column align-items-center mb-4">
+              <a href="{% url 'aiml_page' %}" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease;">
+                  <img src="{% static 'ml.jpeg' %}" style="height: 250px; width: 250px; border-radius: 60px; box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;" 
+                  onmouseover="this.parentElement.style.transform='scale(1.1)'" onmouseout="this.parentElement.style.transform='scale(1)'">
+                  <h2 class="hover-underline" style="font-size: 34px; font-weight: bold; color: #000000; margin-top: 20px; letter-spacing: 0.5px; line-height: 1.2; text-align: center;">
+                      Machine Learning<br>
+                  </h2>
+              </a>
           </div>
-
-          <div class="col-12 col-md-3 d-flex flex-column align-items-center mb-4">
-            <a href="{% url 'finance_page' %}" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease;">
-              <img src="{% static 'finance.jpeg' %}" alt="Finance Image" style="height: 250px; width: 250px; border-radius: 60px; box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;" 
-              onmouseover="this.parentElement.style.transform='scale(1.1)'" onmouseout="this.parentElement.style.transform='scale(1)'">
-              <h2 class="hover-underline" style="font-size: 34px; font-weight: bold; color: #000000; margin-top: 20px; letter-spacing: 0.5px; line-height: 1.2; text-align: center;">
-                Finance<br> Industry
-              </h2>
-            </a>
+        </div>
+    
+        <div class="row justify-content-center align-items-center">
+            <!-- Second Row -->
+            <div class="col-12 col-md-4 d-flex flex-column align-items-center mb-4">
+              <a href="{% url 'data_analytics_page' %}" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease;">
+                  <img src="{% static 'data_analytics.jpeg' %}" style="height: 250px; width: 250px; border-radius: 60px; box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;" 
+                  onmouseover="this.parentElement.style.transform='scale(1.1)'" onmouseout="this.parentElement.style.transform='scale(1)'">
+                  <h2 class="hover-underline" style="font-size: 34px; font-weight: bold; color: #000000; margin-top: 20px; letter-spacing: 0.5px; line-height: 1.2; text-align: center;">
+                      Data<br> Analytics
+                  </h2>
+              </a>
           </div>
+            <div class="col-12 col-md-4 d-flex flex-column align-items-center mb-4">
+                <a href="{% url 'web_scrapping_page' %}" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease;">
+                    <img src="{% static 'web_scrapping.jpeg' %}" style="height: 250px; width: 250px; border-radius: 60px; box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;" 
+                    onmouseover="this.parentElement.style.transform='scale(1.1)'" onmouseout="this.parentElement.style.transform='scale(1)'">
+                    <h2 class="hover-underline" style="font-size: 34px; font-weight: bold; color: #000000; margin-top: 20px; letter-spacing: 0.5px; line-height: 1.2; text-align: center;">
+                        Web<br> Scraping
+                    </h2>
+                </a>
+            </div>
+            <div class="col-12 col-md-4 d-flex flex-column align-items-center mb-4">
+                <a href="{% url 'process_automation_page' %}" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease;">
+                    <img src="{% static 'process_automation.jpeg' %}" style="height: 250px; width: 250px; border-radius: 60px; box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;" 
+                    onmouseover="this.parentElement.style.transform='scale(1.1)'" onmouseout="this.parentElement.style.transform='scale(1)'">
+                    <h2 class="hover-underline" style="font-size: 34px; font-weight: bold; color: #000000; margin-top: 20px; letter-spacing: 0.5px; line-height: 1.2; text-align: center;">
+                        Process <br> Automation
+                    </h2>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- WHO WE SERVE Section -->
 
-          <div class="col-12 col-md-3 d-flex flex-column align-items-center mb-4">
-            <a href="{% url 'insurance_page' %}" style="text-decoration: none; display: flex; flex-direction: column; align-items: center; transition: transform 0.3s ease;">
-              <img src="{% static 'insurance.jpeg' %}" alt="Insurance Image" style="height: 250px; width: 250px; border-radius: 60px; box-shadow: 0 4px 50px rgba(0, 0, 0, 0.2); transition: transform 0.3s ease;" 
-              onmouseover="this.parentElement.style.transform='scale(1.1)'" onmouseout="this.parentElement.style.transform='scale(1)'">
-              <h2 class="hover-underline" style="font-size: 34px; font-weight: bold; color: #000000; margin-top: 20px; letter-spacing: 0.5px; line-height: 1.2; text-align: center;">
-                Insurance<br> Industry
-              </h2>
-            </a>
+    <section class="colaberry-industries-We-Serve section">
+      <div class="container">
+        <div class="header-row">
+          <h2 style="font-size: 50px; font-weight: bold; color: #000000; margin-top: 56px; letter-spacing: 0.5px; line-height: 1.2; text-align: center;">Industries We Serve</h2>
+        </div>
+        <div class="colabery-row"  style="margin-top: 80px;">
+          <div class="col-md-2 col-12">
+            <div class="industries-We-Serve" >
+              <div class="industries-icons">
+                            <img data-src="https://www.colaberry.com/wp-content/uploads/2022/09/energy-utilities-icon-1.svg" alt="Energy &amp; Utilities icon" src="https://www.colaberry.com/wp-content/uploads/2022/09/energy-utilities-icon-1.svg" class=" lazyloaded"><noscript><img src="https://www.colaberry.com/wp-content/uploads/2022/09/energy-utilities-icon-1.svg" alt="Energy &amp; Utilities icon"/></noscript>
+                          </div>
+              <div class="industries-icons-caption">
+                <h3 style="font-weight: bold; font-size: 20px;">Energy, Utilities</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-12">
+            <div class="industries-We-Serve">
+              <div class="industries-icons">
+                            <img data-src="https://www.colaberry.com/wp-content/uploads/2022/09/agriculture-icon-1-1.svg" alt="Agriculture icon" src="https://www.colaberry.com/wp-content/uploads/2022/09/agriculture-icon-1-1.svg" class=" lazyloaded"><noscript><img src="https://www.colaberry.com/wp-content/uploads/2022/09/agriculture-icon-1-1.svg" alt="Agriculture icon"/></noscript>
+                          </div>
+              <div class="industries-icons-caption">
+                <h3 style="font-weight: bold; font-size: 20px;">Agriculture</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-12">
+            <div class="industries-We-Serve">
+              <div class="industries-icons">
+                            <img data-src="https://www.colaberry.com/wp-content/uploads/2022/09/healthcare-icon-3.svg" alt="Healthcare icon" src="https://www.colaberry.com/wp-content/uploads/2022/09/healthcare-icon-3.svg" class=" lazyloaded"><noscript><img src="https://www.colaberry.com/wp-content/uploads/2022/09/healthcare-icon-3.svg" alt="Healthcare icon"/></noscript>
+                          </div>
+              <div class="industries-icons-caption">
+                <h3 style="font-weight: bold; font-size: 20px;">Healthcare</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-12">
+            <div class="industries-We-Serve">
+              <div class="industries-icons">
+                            <img data-src="https://www.colaberry.com/wp-content/uploads/2022/09/financial-services-icon-1-1.svg" alt="Financial Services icon" src="https://www.colaberry.com/wp-content/uploads/2022/09/financial-services-icon-1-1.svg" class=" lazyloaded"><noscript><img src="https://www.colaberry.com/wp-content/uploads/2022/09/financial-services-icon-1-1.svg" alt="Financial Services icon"/></noscript>
+                          </div>
+              <div class="industries-icons-caption">
+                <h3 style="font-weight: bold;font-size: 20px;">Financial Services</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-12">
+            <div class="industries-We-Serve">
+              <div class="industries-icons">
+                            <img data-src="https://www.colaberry.com/wp-content/uploads/2022/09/biotech-icon-1-1.svg" alt="Biotech icon" src="https://www.colaberry.com/wp-content/uploads/2022/09/biotech-icon-1-1.svg" class=" lazyloaded"><noscript><img src="https://www.colaberry.com/wp-content/uploads/2022/09/biotech-icon-1-1.svg" alt="Biotech icon"/></noscript>
+                          </div>
+              <div class="industries-icons-caption">
+                <h3 style="font-weight: bold;font-size: 20px;">Biotech</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-12">
+            <div class="industries-We-Serve">
+              <div class="industries-icons">
+                            <img data-src="https://www.colaberry.com/wp-content/uploads/2022/09/hospitality-icon-1-1.svg" alt="Hospitality icon" src="https://www.colaberry.com/wp-content/uploads/2022/09/hospitality-icon-1-1.svg" class=" lazyloaded"><noscript><img src="https://www.colaberry.com/wp-content/uploads/2022/09/hospitality-icon-1-1.svg" alt="Hospitality icon"/></noscript>
+                          </div>
+              <div class="industries-icons-caption">
+                <h3 style="font-weight: bold;font-size: 20px;">Hospitality</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-12">
+            <div class="industries-We-Serve">
+              <div class="industries-icons">
+                            <img data-src="https://www.colaberry.com/wp-content/uploads/2022/09/insurance-icon-2.svg" alt="Insurance icon" src="https://www.colaberry.com/wp-content/uploads/2022/09/insurance-icon-2.svg" class=" lazyloaded"><noscript><img src="https://www.colaberry.com/wp-content/uploads/2022/09/insurance-icon-2.svg" alt="Insurance icon"/></noscript>
+                          </div>
+              <div class="industries-icons-caption">
+                <h3 style="font-weight: bold;font-size: 20px;">Insurance</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-12">
+            <div class="industries-We-Serve">
+              <div class="industries-icons">
+                            <img data-src="https://www.colaberry.com/wp-content/uploads/2022/09/technology-icon-1-1.svg" alt="Technology icon" src="https://www.colaberry.com/wp-content/uploads/2022/09/technology-icon-1-1.svg" class=" lazyloaded"><noscript><img src="https://www.colaberry.com/wp-content/uploads/2022/09/technology-icon-1-1.svg" alt="Technology icon"/></noscript>
+                          </div>
+              <div class="industries-icons-caption">
+                <h3 style="font-weight: bold;font-size: 20px;">Technology</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-12">
+            <div class="industries-We-Serve">
+              <div class="industries-icons">
+                <img data-src="https://www.colaberry.com/wp-content/uploads/2022/09/pharmaceuticals-icon-1-1.svg" alt="Pharmaceuticals icon" src="https://www.colaberry.com/wp-content/uploads/2022/09/pharmaceuticals-icon-1-1.svg" class=" lazyloaded"><noscript><img src="https://www.colaberry.com/wp-content/uploads/2022/09/pharmaceuticals-icon-1-1.svg" alt="Pharmaceuticals icon"/></noscript>
+                
+              </div>
+              <div class="industries-icons-caption">
+                <h3 style="font-weight: bold;font-size: 20px;">Pharmaceuticals</h3>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-12">
+            <div class="industries-We-Serve">
+              <div class="industries-icons">
+                <img data-src="https://www.colaberry.com/wp-content/uploads/2022/09/retail-icon-1-1.svg" alt="Retail icon" src="https://www.colaberry.com/wp-content/uploads/2022/09/retail-icon-1-1.svg" class=" lazyloaded"><noscript><img src="https://www.colaberry.com/wp-content/uploads/2022/09/retail-icon-1-1.svg" alt="Retail icon"/></noscript>
+              </div>
+              <div class="industries-icons-caption">
+                <h3 style="font-weight: bold;font-size: 20px;">Retail</h3>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
-        
+    </section>
+  
+      
+    
     <!-- CONTACT US FORM -->
     <form method="POST" action="{% url 'home' %}" id="contact" name="contact" style="padding: 60px;">
       {% csrf_token %}
@@ -661,6 +894,16 @@
           <button type="submit" class="btn-contact" style="background-color: #07033afc; border: none; padding: 10px 20px; font-size: 18px; font-weight: bold; color: white; border-radius: 5px; width: 100%; cursor: pointer;">
             Send Message
           </button>
+
+          <!--whatsapp button-->
+          <div class="whatsapp-button">
+            <a href="https://api.whatsapp.com/send?phone=918897198275" class="whatsapp-link">
+              <div class="whatsapp-box">
+                <img src="{% static 'whatsapp.png' %}" alt="WhatsApp" class="whatsapp-icon">
+                <span class="whatsapp-text">Chat with us</span>
+              </div>
+            </a>
+          </div>
       </div>
     </form>
 
