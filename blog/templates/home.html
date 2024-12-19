@@ -511,44 +511,44 @@
       animation: appearFromBottom 1s ease-out forwards;
     }
 
-    /* who we serve style */
-    .industries-container {
-      text-align: center;
-      padding: 20px;
-    }
+    /* General layout for larger screens */
+.colabery-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Adds spacing between items */
+}
 
-    .industries-container h1 {
-      font-weight: bold;
-      margin-bottom: 20px;
-      font-size: 2rem;
-    }
+.col-md-2 {
+  flex: 0 0 calc(20% - 20px); /* 5 items per row for larger screens */
+  max-width: calc(20% - 20px);
+  text-align: center;
+}
 
-    .colabery-row {
-      display: flex;
-      flex-wrap: wrap; /* Allows wrapping of items */
-      justify-content: center; /* Centers items horizontally */
-      gap: 20px; /* Adds spacing between items */
-    }
-    
-    .col-md-2 {
-      flex: 0 0 calc(20% - 20px); /* Adjusts the width for a 5-item-per-row layout */
-      max-width: calc(20% - 20px);
-      text-align: center;
-    }
-    
-    .industries-We-Serve {
-      margin: 10px 0;
-    }
-    
-    .industries-icons img {
-      width: 80px; /* Adjust size as needed */
-      height: auto;
-    }
-    
-    .industries-icons-caption h3 {
-      font-size: 14px; /* Adjust text size */
-      margin-top: 8px;
-    } 
+.industries-We-Serve {
+  margin: 10px 0;
+}
+
+.industries-icons img {
+  width: 80px;
+  height: auto;
+}
+
+.industries-icons-caption h3 {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Mobile layout: 2 items per row */
+@media screen and (max-width: 768px) {
+  .col-md-2 {
+    flex: 0 0 50%; /* Two items per row */
+    max-width: 50%; /* Ensures 2 items per row */
+    box-sizing: border-box;
+    padding: 10px;
+  }
+}
+
   </style>
   </head>
   <body>
